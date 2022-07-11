@@ -62,23 +62,23 @@ $black: #000;
 $medium-black: #1d1d1d;
 $darker-gray: #272727;
 $dark-gray:#101010;
-$medium-gray: #888;
-$light-gray: #d1d1d1;
+$gray: #e6e6e6;
 
 //White
 $white: #fff;
 
 //Red
-$soft-red: #dc535b;
-$medium-red: #c9373f;
+$deepred: #a70404cc;
 
-//Blue
-$aqua: #00add0;
 //Purple
-$magenta: #930f5b;
+$purple: #7f187f;
 
-// Base
+// Base Theme
+$primary: $purple;
+$secondary: $gray;
 
+// WooCommerce Based
+$sale: $deepred;
 $base-line-height: 1.7;
 
 //Google font
