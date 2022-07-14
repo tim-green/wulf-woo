@@ -2,19 +2,31 @@
 	return;
 } ?>
 
-<div id="comments-wrapper" class="mt-5">
+<div id="comments" class="comments=area">
 
-	<?php if ( have_comments() ) { ?>
+	<?php if ( have_comments() ) : 
+		?>
 
 		<h2 class="comments-title mb-3">
-			<?php
-			comments_number(
-				esc_html__( 'No comments yet.', 'groundctrl' ),
-				esc_html__( 'One comment.', 'groundctrl' ),
-				esc_html__( '% comments.', 'groundctrl' )
-			);
+		<?php
+		 $groundctrl_comment_count = get_comments_number();
+			if ( '1' === $groundctrl_comment_count ) {
+				printf(
+					/* translators: 1: title. */
+					esc_html__( 'One thought on &ldquo;%1$s&rdquo;', 'groundctrl' ),
+					'<span>' . wp_kses_post( get_the_title() ) . '</span>'
+				);
+			} else {
+				printf( 
+					/* translators: 1: comment count number, 2: title. */
+					esc_html( _nx( '%1$s thought on &ldquo;%2$s&rdquo;', '%1$s thoughts on &ldquo;%2$s&rdquo;', $groundctrl_comment_count, 'comments title', 'groundctrl' ) ),
+					number_format_i18n( $groundctrl_comment_count ), // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+					'<span>' . wp_kses_post( get_the_title() ) . '</span>'
+				);
+			}
 			?>
 		</h2>
+		<?php the_comments_navigation(); ?>
 
 		<ol class="comment-list">
 			<?php
@@ -22,48 +34,22 @@
 				array(
 					'style'       => 'ol',
 					'short_ping'  => true,
-					'avatar_size' => 48,
+					'avatar_size' => 48
 				)
 			);
 			?>
 		</ol>
 
-		<?php if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ) { ?>
+		<?php the_comments_navigation(); 
 
-			<nav class="navigation comment-navigation" role="navigation">
-
-				<h2 class="screen-reader-text section-heading">
-					<?php esc_html_e( 'Comment navigation', 'groundctrl' ); ?>
-				</h2>
-
-				<div class="nav-previous">
-					<?php previous_comments_link( esc_html__( '&larr; Older Comments', 'groundctrl' ) ); ?>
-				</div>
-
-				<div class="nav-next">
-					<?php next_comments_link( esc_html__( 'Newer Comments &rarr;', 'groundctrl' ) ); ?>
-				</div>
-
-			</nav>
-		
-			<?php
-		}
-	}
-
-	if ( ! comments_open() && get_comments_number() ) {
+			if( !comments_open()) :
 		?>
 
-		<p class="no-comments"><?php esc_html_e( 'Comments are closed.', 'groundctrl' ); ?></p>
+<p class="no-comments"><?php esc_html_e( 'Comments are closed.', 'groundctrl' ); ?></p>
+			<?php
+		endif;
 
-		<?php
-	}
+	endif; // Check for have_comments().
 
-	comment_form(
-		array(
-			'class_submit'  => 'submit btn btn-primary',
-		)
-	);
-
+	comment_form();
 	?>
-
-</div> <!-- #comments-wrapper -->
