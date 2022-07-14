@@ -1,28 +1,19 @@
 <?php get_header(); ?>
+<main id="primary" class="site-main">
+	<section class="error-404 not-found">
+		<header class="pge-header">
+			<h1 class="page-title">
+				<?php esc_attr_e('Oops! This page can&rsquot;t be found','groundctrl'); ?>
+			</h1>
+		</header>
 
-<main id="content-wrapper">
+		<div class="page-content">
+		<p><?php esc_html_e( 'It looks like nothing was found at this location. Maybe try one of the links below or a search?', 'groundctrl' ); ?></p>
 
-	<div class="container">
-
-		<div class="row py-5 justify-content-center">
-
-			<div class="col-sm-8">
-
-				<h1 class="mb-5 text-center">
-					<?php esc_html_e( 'Oops, that page can&#39;t be found', 'groundctrl' ); ?>
-				</h1>
-
-				<h2 class="mb-5 text-center">
-					<?php esc_html_e( 'Error 404', 'groundctrl' ); ?>
-				</h2>
-
-			</div>
-
+		<?php get_search_form(); ?>
 		</div>
-		
-	</div>
-
-</main> <!-- #content-wrapper -->
+	</section>
+</main>
 
 <?php
 get_footer();
