@@ -48,6 +48,10 @@
 	</section> <!-- #section-news -->
  
 	<section id="section-news">
+<main id="primary" class="site-main">
+		<section class="container pb-5 pt-4 ">
+			<!-- ACF slider option here -->
+		</section>
 
 		<section class="container popular-products">
 			<h1 class="text-center pt-5">Popular Products</h1>
