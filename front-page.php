@@ -1,53 +1,5 @@
 <?php get_header(); ?>
 
-<main id="content-wrapper">
-
-	<section id="section-slider">
-
-		<?php
-
-		$args = array(
-			'post_type' => 'post',
-			'posts_per_page'    => 3,
-		);
-
-		get_template_part( 'templates/sections/home', 'slider', $args );
-
-		?>
-
-	</section> <!-- #section-slider -->
-
-	<section id="section-services">
-
-		<?php
-
-		$args = array(
-			'post_type' => 'post',
-			'posts_per_page'    => 3,
-		);
-
-		get_template_part( 'templates/sections/home', 'services', $args );
-
-		?>
-
-	</section> <!-- #section-services -->
-
-	<section id="section-cta">
-
-		<?php
-
-		$args = array(
-			'post_type' => 'post',
-			'posts_per_page'    => 1,
-		);
-
-		get_template_part( 'templates/sections/home', 'cta', $args );
-
-		?>
-
-	</section> <!-- #section-news -->
- 
-	<section id="section-news">
 <main id="primary" class="site-main">
 		<section class="container pb-5 pt-4 ">
 			<!-- ACF slider option here -->
@@ -62,7 +14,6 @@
 			</div>
 		</section>
 
-		get_template_part( 'templates/sections/home', 'news', $args );
 		<section class="categories pt-5 pb-5">
 			<div class="container">
 				<h1 class="text-center pt-5">Categories</h1>
@@ -107,12 +58,9 @@
 			<h1 class="text-center pt-5">Special Offers</h1>
 			<p class="text-center"></p>
 
-	</section> <!-- #section-news -->
- 
-</main> <!-- #content-wrapper -->
-<main id="primary" class="site-main">
-		<section class="container pb-5 pt-4 ">
-			<!-- ACF slider option here -->
+			<div class="pt-5 pb-5">
+				<?php echo do_shortcode( '[sale_products columns=4 limit=4]' ); ?>
+			</div>
 		</section>
 	</main><!-- #main -->
 
