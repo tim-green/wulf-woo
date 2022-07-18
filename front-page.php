@@ -63,6 +63,11 @@
 	</section> <!-- #section-news -->
  
 </main> <!-- #content-wrapper -->
+<main id="primary" class="site-main">
+		<section class="container pb-5 pt-4 ">
+			<!-- ACF slider option here -->
+		</section>
+	</main><!-- #main -->
 
 <?php
 get_footer();
