@@ -1,42 +1,21 @@
 <?php get_header(); ?>
 
-<main id="content-wrapper">
+<main id="primary" class="site-main"></main>
+	<div class="container pt-5">
 
-	<?php
-	while ( have_posts() ) :
-		the_post();
+		<?php 
+			while (have_posts()) : the_post();
+			
+			get_template_part('templates/content', 'page');
 
-		if ( has_post_thumbnail() ) {
-
-			get_template_part( 'templates/sections/common', 'pageheader' );
-
-		}
+			if(comments_open() || get_comments_number())
+			: comments_template();
+			endif;
+		endwhile;
 		?>
 
-		<div class="container">
-
-			<?php
-
-			grnd_breadcrumbs();
-
-			// Get this page slug
-			$slug = $post->post_name;
-
-			// Check if template file exists, set the template to be used
-			$template_name = ( is_file( get_theme_file_path( 'templates/content/page-' . $slug . '.php' ) ) ) ? $slug : '';
-
-			get_template_part( 'templates/content/page', $template_name );
-
-			if ( comments_open() || get_comments_number() ) {
-				comments_template(); }
-
-			?>
-			
-		</div>
-
-	<?php endwhile ?>
-
-</main> <!-- #content-wrapper -->
+	</div>
+</main>
 
 <?php
 get_footer();
