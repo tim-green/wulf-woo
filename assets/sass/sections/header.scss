@@ -14,11 +14,36 @@
     svg {
       height: 100%;
     }
+// Annoucement Bar
+
+.annoucement-bar{
+  a{
+    text-decoration: none;
   }
 
-  &.header-scrolled {
-    .custom-logo {
-      height: 50px;
+  font-size: .8em;
+  border-bottom: 1px solid var(--bs-gray);
+
+  &__list{
+    margin: 0 -10px;
+    padding: 0;
+    list-style-type: none;
+    display: inline-flex;
+  
+    li{
+      margin: 0 10px;
+      display:flex;
+      align-items: center;
+
+      .fa-solid{
+        background-color: var(--bs-body-background-color);
+        display:inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 30px;
+        height: 30px;
+        margin-right: 6px
+      }
     }
   }
 }
