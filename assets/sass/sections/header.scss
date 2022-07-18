@@ -47,3 +47,34 @@
     }
   }
 }
+// Main Menu
+.main-navigation{
+  font-weight: 600;
+
+  .current-menu-item{
+    background-color: $purple;
+  }
+
+  a{
+    color: var(--bs-white);
+    padding: .6rem 1.4rem;
+    text-decoration: uppercase;
+
+    &:hover{
+      background-color: $purple;
+    }
+  }
+
+  .menu-toggle{
+    background: $primary;
+    color: $white;
+    border:none;
+  }
+
+  .sub-menu{
+    li{
+      background: $primary;
+    }
+  }
+
+}
