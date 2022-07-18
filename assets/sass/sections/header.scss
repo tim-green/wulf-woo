@@ -46,6 +46,10 @@
       }
     }
   }
+
+  @include media-breakpoint-down(lg){
+    display: none
+  }
 }
 // Main Menu
 .main-navigation{
